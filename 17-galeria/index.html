@@ -50,7 +50,7 @@
     var total = 11;
 
     var columns = document.getElementById("columns");
-    for (var i = 1; i < total; i++)
+    for (var i = 1; i <= total; i++)
     {
         var card = document.createElement("div");
 
@@ -85,7 +85,7 @@
         card.appendChild(link);
         card.appendChild(modal);
         card.setAttribute("class","card");
-        
+
         columns.appendChild(card);
     }
 </script>
