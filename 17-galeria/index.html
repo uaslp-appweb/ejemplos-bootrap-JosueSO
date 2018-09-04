@@ -52,40 +52,19 @@
     var columns = document.getElementById("columns");
     for (var i = 1; i <= total; i++)
     {
-        var card = document.createElement("div");
-
-        var link = document.createElement("a");
-        var img1 = document.createElement("img");
-        
-        img1.setAttribute("src", "img/"+i+".jpg"); 
-        img1.setAttribute("class","card-img-top");
-        
-        link.appendChild(img1);
-        link.setAttribute("href", "#modal"+i);
-        link.setAttribute("data-toggle", "modal");
-
-        var modal = document.createElement("div");
-        var dialog = document.createElement("div");
-        var content = document.createElement("div");
-        var img2 = document.createElement("img");
-
-        img2.setAttribute("src", "img/"+i+".jpg"); 
-        img2.setAttribute("class","img-fluid");
-
-        content.appendChild(img2);
-        content.setAttribute("class","modal-content");
-
-        dialog.appendChild(content);
-        dialog.setAttribute("class","modal-dialog modal-dialog-centered modal-lg");
-
-        modal.appendChild(dialog);
-        modal.setAttribute("class","modal fade");
-        modal.setAttribute("id","modal"+i);
-
-        card.appendChild(link);
-        card.appendChild(modal);
-        card.setAttribute("class","card");
-
-        columns.appendChild(card);
+        columns.innerHTML +=
+            `<div class="card">
+                <a href="#modal${i}" data-toggle="modal">
+                    <img src="img/${i}.jpg" alt="" class="card-img-top">
+                </a>
+                <div class="modal fade" id="modal${i}">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-content">
+                            <img src="img/${i}.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>`
+        ;
     }
 </script>
